@@ -130,7 +130,7 @@ protected function commands()
 }
 ```
 
-Even though this file does not define HTTP routes, it defines console based entry points (routes) into your application. Within this file, you may define all of your Closure based routes using the `Artisan::command` method. The `command` method accepts two arguments: the [command signature](#defining-input-expectations) and a Closure which receives the commands arguments and options:
+Ez a fájl nem definiál HTTP útvonalakat, azonban konzol alapú belépési pontokat (útvonalakat) igen. Ezzel a fájlal definiálhatod az összes Closure alapú útvonalat a `Artisan::command` metódus segítségével. A `command` metódus két argumentumot fogad el: a [command signature](#defining-input-expectations) és a Closure -t ami megkapja a parancs argumentumait és opcióit:
 
 ```php
 Artisan::command('build {project}', function ($project) {
