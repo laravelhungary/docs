@@ -1,4 +1,4 @@
-# Installation
+# Telepítés
 
 - [Telepítés](#installation)
     - [Rendszerkövetelmények](#server-requirements)
@@ -29,7 +29,7 @@ Ha nem használod a Homesteadet, a következő elvárásoknak kell megfelelnie a
 
 Laravel a [Composer](http://getcomposer.org) csomagkezelőt használja a függőségek kezelésére. Mielött használnád a Laravelt, ellenőrizd le hogy a Composer telepítve van-e a számítógépeden.
 
-#### Laravel Installer-en keresztűl
+#### Laravel Installer-en keresztül
 
 Előszőr is töltsd le a Laravel Installert a Composer használatával:
 
@@ -53,7 +53,7 @@ Ha van helyileg PHP telepítve és szeretnéd hogy a PHP-ba épített fejlsztői
 
     php artisan serve
 
-Természetesen sokkal teljeskörübb fejlesztői lehetetősége érhetők el a  [Homestead](/docs/{{version}}/homestead) és a  [Valet](/docs/{{version}}/valet) által.
+Természetesen sokkal teljeskörübb fejlesztői lehetetőségek érhetők el a  [Homestead](/docs/{{version}}/homestead) és a  [Valet](/docs/{{version}}/valet) által.
 
 <a name="configuration"></a>
 ### Konfiguráció
@@ -88,4 +88,4 @@ Valószínüleg a Laravel egyéb komponenseit és szeretnéd konfigurálni mint 
 - [Session](/docs/{{version}}/session#configuration)
 </div>
 
-Ha már a Laravel telepítve van, még érdemes [Helyi fejleszői környezet beállítása](/docs/{{version}}/configuration#environment-configuration) alkalmazni.
+Ha már a Laravel telepítve van, még érdemes a [Helyi fejleszői környezet beállítása](/docs/{{version}}/configuration#environment-configuration) alkalmazni.
