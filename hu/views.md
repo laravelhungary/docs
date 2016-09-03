@@ -1,14 +1,14 @@
 # View
 
-- [Viewk létrehozása](#creating-views)
-- [Adat átadások Viewknak](#passing-data-to-views)
+- [View -k létrehozása](#creating-views)
+- [Adat átadások View -knak](#passing-data-to-views)
     - [Adatok megosztása az össze Viewal](#sharing-data-with-all-views)
 - [View Composerek](#view-composers)
 
 <a name="creating-views"></a>
-## Viewk létrehozása
+## View -k létrehozása
 
-A Viewk HTML kódot tartalmaznak amit az alkalmazásod prezetál és külön választja a controllerektől / alkalmazás logikai felépítésétől. A Viewk a `resources/views` könyvtárban találhatók.  Egy sima View valahogy igy néz ki:
+A View -k HTML kódot tartalmaznak amit az alkalmazásod prezetál és külön választja a controllerektől / alkalmazás logikai felépítésétől. A View -k a `resources/views` könyvtárban találhatók.  Egy sima View valahogy igy néz ki:
 
     <!-- View stored in resources/views/greeting.php -->
 
@@ -26,7 +26,7 @@ Mivel a view itt van tárolva `resources/views/greeting.php`, így vissza tudunk
 
 Mint ahogy látod, az első átadott paraméter a `view` helpernek a fájl neve amit a `resources/views` könyvtárban tároltunk. A második paraméter egy tömb(array) és így elérhető a view számára. Ebben az esetben a `name` változót adtuk át és a  [Blade syntax](/docs/{{version}}/blade) segítségével jelentítettük meg.
 
-Természetesen a viewkat is lehet szeparálni alkönyvtárakba a `resources/views` mappán belül. "Dot" azaz pontokkal fűzve tudunk az alkönyvtárakban megtalálható viewkra hivatkozni. Például ha a viewd `resources/views/admin/profile.php` van tárolva, így tudsz hivatkozni rá:
+Természetesen a view -kat is lehet szeparálni alkönyvtárakba a `resources/views` mappán belül. "Dot" azaz pontokkal fűzve tudunk az alkönyvtárakban megtalálható view -kra hivatkozni. Például ha a viewd `resources/views/admin/profile.php` van tárolva, így tudsz hivatkozni rá:
 
     return view('admin.profile', $data);
 
@@ -41,7 +41,7 @@ Ha le kell ellenőrizned,hogy egy view létezik-e vagy sem akkor `View` facadeot
     }
 
 <a name="passing-data-to-views"></a>
-## Adatok átadása Viewknak
+## Adatok átadása View -knak
 
 Mint ahogy láttad az előző példában így tudsz átadni egy adat tömböt a viewnak:
 

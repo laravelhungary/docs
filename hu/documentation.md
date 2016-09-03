@@ -1,0 +1,80 @@
+- Prológus
+    - [Verzió információk](/docs/{{version}}/releases)
+    - [Frissítési tudnivalók](/docs/{{version}}/upgrade)
+    - [Fejlesztői tudnivaók](/docs/{{version}}/contributions)
+    - [API Dokumentáció](/api/{{version}})
+- Kezdés
+    - [Telepítés](/docs/{{version}}/installation)
+    - [Beállítás](/docs/{{version}}/configuration)
+    - [Könytárstruktúra](/docs/{{version}}/structure)
+    - [Hibák & Logolás](/docs/{{version}}/errors)
+- Fejlesztői környezet
+    - [Homestead](/docs/{{version}}/homestead)
+    - [Valet](/docs/{{version}}/valet)
+- Core Koncepció
+    - [Service Containerek](/docs/{{version}}/container)
+    - [Service Providerek](/docs/{{version}}/providers)
+    - [Facade -ok](/docs/{{version}}/facades)
+    - [Contractok](/docs/{{version}}/contracts)
+- A HTTP Réteg
+    - [Routing](/docs/{{version}}/routing)
+    - [Middleware](/docs/{{version}}/middleware)
+    - [CSRF Védelem](/docs/{{version}}/csrf)
+    - [Controllerek](/docs/{{version}}/controllers)
+    - [Requestek](/docs/{{version}}/requests)
+    - [Response -ok](/docs/{{version}}/responses)
+    - [Sessionök](/docs/{{version}}/session)
+    - [Validáció](/docs/{{version}}/validation)
+- View -k & Templétek
+    - [View -k](/docs/{{version}}/views)
+    - [Blade Templatétek](/docs/{{version}}/blade)
+    - [Lokalizáció](/docs/{{version}}/localization)
+- JavaScript & CSS
+    - [Alapok](/docs/{{version}}/frontend)
+    - [Assetek fordítása](/docs/{{version}}/elixir)
+- Biztonság
+    - [Authentikáció](/docs/{{version}}/authentication)
+    - [Authorizáció](/docs/{{version}}/authorization)
+    - [Jelszó visszaállítás](/docs/{{version}}/passwords)
+    - [API Authentikáció](/docs/{{version}}/passport)
+    - [Encryptelés](/docs/{{version}}/encryption)
+    - [Hashelés](/docs/{{version}}/hashing)
+- Általános témák
+    - [Broadcasting](/docs/{{version}}/broadcasting)
+    - [Cache](/docs/{{version}}/cache)
+    - [Eventek](/docs/{{version}}/events)
+    - [File Storage](/docs/{{version}}/filesystem)
+    - [Mail](/docs/{{version}}/mail)
+    - [Notification -ök](/docs/{{version}}/notifications)
+    - [Queue -k](/docs/{{version}}/queues)
+- Adatbázis
+    - [Alapok](/docs/{{version}}/database)
+    - [Query Builder](/docs/{{version}}/queries)
+    - [Pagination](/docs/{{version}}/pagination)
+    - [Migration -ök](/docs/{{version}}/migrations)
+    - [Seedelés](/docs/{{version}}/seeding)
+    - [Redis](/docs/{{version}}/redis)
+- Eloquent ORM
+    - [Alapok](/docs/{{version}}/eloquent)
+    - [Kapcsolatok](/docs/{{version}}/eloquent-relationships)
+    - [Collection -ök](/docs/{{version}}/eloquent-collections)
+    - [Mutatorok](/docs/{{version}}/eloquent-mutators)
+    - [Serializáció](/docs/{{version}}/eloquent-serialization)
+- Artisan Konzol
+    - [Parancsok](/docs/{{version}}/artisan)
+    - [Feladat Ütemezése](/docs/{{version}}/scheduling)
+- Tesztelés
+    - [Alapok](/docs/{{version}}/testing)
+    - [Application Testing](/docs/{{version}}/application-testing)
+    - [Adatbázis](/docs/{{version}}/database-testing)
+    - [Mockolás](/docs/{{version}}/mocking)
+- Hivatalos Csomagok
+    - [Cashier](/docs/{{version}}/billing)
+    - [Envoy](/docs/{{version}}/envoy)
+    - [Passport](/docs/{{version}}/passport)
+    - [Scout](/docs/{{version}}/scout)
+    - [Socialite](https://github.com/laravel/socialite)
+- Függelés
+    - [Collection -ök](/docs/{{version}}/collections)
+    - [Helperek](/docs/{{version}}/helpers)
+    - [Csomagok](/docs/{{version}}/packages)
