@@ -22,11 +22,11 @@
     - [CSRF Védelem](/docs/{{version}}/csrf)
     - [Controllerek](/docs/{{version}}/controllers)
     - [Requestek](/docs/{{version}}/requests)
-    - [Response -ok](/docs/{{version}}/responses)
+    - [Response-ok](/docs/{{version}}/responses)
     - [Sessionök](/docs/{{version}}/session)
     - [Validáció](/docs/{{version}}/validation)
-- View -k & Templétek
-    - [View -k](/docs/{{version}}/views)
+- View-k & Templétek
+    - [View-k](/docs/{{version}}/views)
     - [Blade Templatétek](/docs/{{version}}/blade)
     - [Lokalizáció](/docs/{{version}}/localization)
 - JavaScript & CSS
@@ -45,19 +45,19 @@
     - [Eventek](/docs/{{version}}/events)
     - [File Storage](/docs/{{version}}/filesystem)
     - [Mail](/docs/{{version}}/mail)
-    - [Notification -ök](/docs/{{version}}/notifications)
-    - [Queue -k](/docs/{{version}}/queues)
+    - [Notification-ök](/docs/{{version}}/notifications)
+    - [Queue-k](/docs/{{version}}/queues)
 - Adatbázis
     - [Alapok](/docs/{{version}}/database)
     - [Query Builder](/docs/{{version}}/queries)
     - [Pagination](/docs/{{version}}/pagination)
-    - [Migration -ök](/docs/{{version}}/migrations)
+    - [Migration-ök](/docs/{{version}}/migrations)
     - [Seedelés](/docs/{{version}}/seeding)
     - [Redis](/docs/{{version}}/redis)
 - Eloquent ORM
     - [Alapok](/docs/{{version}}/eloquent)
     - [Kapcsolatok](/docs/{{version}}/eloquent-relationships)
-    - [Collection -ök](/docs/{{version}}/eloquent-collections)
+    - [Collection-ök](/docs/{{version}}/eloquent-collections)
     - [Mutatorok](/docs/{{version}}/eloquent-mutators)
     - [Serializáció](/docs/{{version}}/eloquent-serialization)
 - Artisan Konzol
@@ -74,7 +74,7 @@
     - [Passport](/docs/{{version}}/passport)
     - [Scout](/docs/{{version}}/scout)
     - [Socialite](https://github.com/laravel/socialite)
-- Függelés
-    - [Collection -ök](/docs/{{version}}/collections)
+- Függelék
+    - [Collection-ök](/docs/{{version}}/collections)
     - [Helperek](/docs/{{version}}/helpers)
     - [Csomagok](/docs/{{version}}/packages)

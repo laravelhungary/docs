@@ -11,8 +11,7 @@
 <a name="server-requirements"></a>
 ### Rendszerkövetelmények
 
-A Laravel keretrendszerhez használatához szükséges rendszerkövetelmények. Természetesen, az összes követelménynek megfelel a [Laravel Homestead](/docs/{{version}}/homestead) virtuális gép,
-szóval erősen javallot a Homestead használata lokális fejlesztési környezetként.
+A Laravel keretrendszerhez használatához szükséges néhány követelmény. Természetesen a [Laravel Homestead](/docs/{{version}}/homestead) virtuális gép az összes követelménynek megfelel, szóval erősen javallott a Homestead használata lokális fejlesztési környezetként.
 
 Ha nem használod a Homesteadet, a következő elvárásoknak kell megfelelnie a szerverednek:
 
@@ -25,9 +24,9 @@ Ha nem használod a Homesteadet, a következő elvárásoknak kell megfelelnie a
 </div>
 
 <a name="installing-laravel"></a>
-### Laravel telepítése
+### A Laravel telepítése
 
-Laravel a [Composer](http://getcomposer.org) csomagkezelőt használja a függőségek kezelésére. Mielött használnád a Laravelt, ellenőrizd le ,hogy a Composer telepítve van-e a számítógépeden.
+A Laravel a [Composer](http://getcomposer.org) csomagkezelőt használja a függőségek kezelésére. Mielött használnád a Laravelt, ellenőrizd, hogy a Composer telepítve van-e a számítógépeden.
 
 #### Laravel Installer-en keresztül
 
@@ -35,32 +34,32 @@ Előszőr is töltsd le a Laravel Installert a Composer használatával:
 
     composer global require "laravel/installer"
 
-Ellenőrizd le ,hogy a  `~/.composer/vendor/bin` mappa (vagy a vele megyegyező mappa a te OS-edhez)  hozzá van adva a $PATH-hoz magyarán a rendszered megtalálja a `laravel` futtatható álományát.
+Ellenőrizd, hogy a  `~/.composer/vendor/bin` mappa (vagy az ennek megfelelő mappa a te OS-eden) hozzá van adva a $PATH-hoz, magyarán a rendszered megtalálja-e a `laravel` futtatható álományát.
 
-Telepítás után, a `laravel new` parancs létrehoz egy friss Laravel telepítést az általad megadott mappába. Például, `laravel new blog` csinálni fog egy új blog mappát, ami tartalmazza a friss laravel telepítést és az összes függőségét:
+Telepítás után a `laravel new` parancs létrehoz egy friss Laravel telepítést az általad megadott mappába. Például a `laravel new blog` készít egy új blog mappát, ami tartalmazza a friss Laravel telepítést és az összes függőségét:
 
     laravel new blog
 
 #### Composer Create-Project-en keresztül
 
-Alternatívaként, telepíteni tudod a laravel a Composer `create-project` használatával a terminálon keresztül:
+Alternatívaként telepítheted a Laravelt a Composer `create-project` használatával a terminálon keresztül:
 
     composer create-project --prefer-dist laravel/laravel blog
 
 #### Helyi fejlesztői szerver:
 
-Ha van helyileg PHP telepítve és szeretnéd ,hogy a PHP-ba épített fejlsztői szerver szolgálja ki az applikációdat, akkor a `serve` Artisan parancsot használd. Ez a parancs elindítja a feljesztői szervert a `http://localhost:8000` címen:
+Ha van helyileg PHP telepítve és szeretnéd, hogy a PHP-ba épített fejlsztői szerver szolgálja ki az applikációdat, akkor a `serve` Artisan parancsot használd. Ez a parancs elindítja a feljesztői szervert a `http://localhost:8000` címen:
 
     php artisan serve
 
-Természetesen sokkal teljeskörübb fejlesztői lehetetőségek érhetők el a  [Homestead](/docs/{{version}}/homestead) és a  [Valet](/docs/{{version}}/valet) által.
+Természetesen sokkal teljeskörübb fejlesztői lehetetőségek érhetők el a [Homestead](/docs/{{version}}/homestead) és a [Valet](/docs/{{version}}/valet) által.
 
 <a name="configuration"></a>
 ### Konfiguráció
 
 #### Public Könyvtár
 
-A Laravel telepítése után, valószínüleg be kell állítanod a webszervered dokumentum / web győkér könyvtárát ami a `public` mappa legyen. Az a könyvtárban található `index.php`  szolgálja ki mint legelső controller és ez felel az összes HTTP kérés belépőpontként a programodba.
+A Laravel telepítése után valószínüleg be kell állítanod, hogy  a webszervered document / web root könyvtára a `public` mappa legyen. Az abban a könyvtárban található `index.php` szolgál legelső controllerként, és ez felel az összes HTTP kérés belépőpontként a programodba.
 
 #### Konfigurációs fájlok
 
@@ -68,24 +67,24 @@ Minden konfigurációs fájl ami szükséges a Laravel keretrendszerhez a `confi
 
 #### Könyvár jogosultságok
 
-A Laravel telepítése után, valószínüleg be kell állítanod pár jogosultságot. A `storage` és a `bootstrap/cache` könyvtáraknak írhatónak kell lennie a web szerver által, külömben a a Laravel nem fog futni. Hogyha [Homestead](/docs/{{version}}/homestead) virtuális gépet használsz, ezek a jogosultságok előre be vannak állítva.
+A Laravel telepítése után valószínüleg be kell állítanod pár jogosultságot. A `storage` és a `bootstrap/cache` könyvtáraknak írhatónak kell lennie a web szerver által, külömben a a Laravel nem fog futni. Ha [Homestead](/docs/{{version}}/homestead) virtuális gépet használsz, ezek a jogosultságok előre be vannak állítva.
 
 #### Applikáció Kulcs
 
-A következő dolog amit meg kell tenned a Laravel telepítése után, beállítasz egy random stringet applikációs kulcsként. Ha a Laravel a Composeren vagy a Laravel installeren kereszül telepíted akkor a `php artisan key:generate` parancs kiadása már megtörtént.
+A következő dolog, amit meg kell tenned a Laravel telepítése után, hogy beállítasz egy random stringet applikációs kulcsként. Ha a Laravelt a Composeren vagy a Laravel installeren kereszül telepítetted akkor a telepítő ezt megtette neked a  `php artisan key:generate` parancs automatikus futtatásával.
 
-Általánosságban a kulcsnak 32 karakter hosszúnak kell lennie.  A kulcs beállítható a  `.env` futtató környezeti fájlban. Ha még nem nevezted át a `.env.example`  `.env`-re, akkor most kellene megtenned. **Ha az applikációs kulcs nincs beállítva, a felhasználó sessionök és egyéb titkosított adatod nem lesz biztonságos!**
+Általánosságban a kulcsnak 32 karakter hosszúnak kell lennie.  A kulcs a `.env` futtató környezeti fájlban állítható be. Ha még nem nevezted át a `.env.example` fájlt `.env`-re, akkor most kellene megtenned. **Ha az applikációs kulcs nincs beállítva, a felhasználó sessionök és az egyéb titkosított adataid nem lesznek biztonságosan!**
 
 #### További konfigurációs lehetőségek
 
-A Laravelnek általában nincs szüksége további beállításokra azon kívól amit alapból tartalmaz. Már kezdheted is a fejlesztést! Mindenesetre érdemes áttekinteni a `config/app.php` fájlt amiben minden beállítási lehetőség dokumentálva van. Tartalmaz például `timezone`(időzona) és `locale`(nyelv) beállításokat amikel valószínűleg módosítani szeretnéd ,hogy megfelelő legyen az alkalmazásodhoz.
+A Laravelnek általában nincs szüksége az alapértelmezetteken kívül további beállításokra. Már kezdheted is a fejlesztést! Mindenesetre érdemes áttekinteni a `config/app.php` fájlt, amelyben minden beállítási lehetőség dokumentálva van. Tartalmaz például `timezone`(időzona) és `locale`(nyelv) beállításokat, amiket valószínűleg módosítani szeretnél, hogy megfelelő legyen az alkalmazásodhoz.
 
-Valószínüleg a Laravel egyéb komponenseit és szeretnéd konfigurálni mint például:
+Valószínüleg a Laravel egyéb komponenseit is szeretnéd konfigurálni, mint például:
 
 <div class="content-list" markdown="1">
 - [Cache](/docs/{{version}}/cache#configuration)
-- [Database](/docs/{{version}}/database#configuration)
+- [Adatbázis](/docs/{{version}}/database#configuration)
 - [Session](/docs/{{version}}/session#configuration)
 </div>
 
-Ha már a Laravel telepítve van, még érdemes a [Helyi fejleszői környezet beállítása](/docs/{{version}}/configuration#environment-configuration) alkalmazni.
+Ha a Laravel már telepítve van, érdemes a [helyi fejlesztői környezetet is beállítani](/docs/{{version}}/configuration#environment-configuration).
