@@ -1,14 +1,14 @@
 # View
 
-- [View -k létrehozása](#creating-views)
-- [Adat átadások View -knak](#passing-data-to-views)
-    - [Adatok megosztása az össze Viewal](#sharing-data-with-all-views)
+- [View-k létrehozása](#creating-views)
+- [Adat átadása View-knak](#passing-data-to-views)
+    - [Adatok megosztása az össze View-val](#sharing-data-with-all-views)
 - [View Composerek](#view-composers)
 
 <a name="creating-views"></a>
-## View -k létrehozása
+## View-k létrehozása
 
-A View -k HTML kódot tartalmaznak amit az alkalmazásod prezetál és külön választja a controllerektől / alkalmazás logikai felépítésétől. A View -k a `resources/views` könyvtárban találhatók.  Egy sima View valahogy igy néz ki:
+A View-k HTML kódot tartalmaznak, amik így külön vannak választva a controllerektől és alkalmazás logikai felépítésétől. A View-k a `resources/views` könyvtárban találhatók. Egy egyszerű View valahogy igy néz ki:
 
     <!-- View stored in resources/views/greeting.php -->
 
@@ -18,21 +18,21 @@ A View -k HTML kódot tartalmaznak amit az alkalmazásod prezetál és külön v
         </body>
     </html>
 
-Mivel a view itt van tárolva `resources/views/greeting.php`, így vissza tudunk térni vele a globális `view` helperrel:
+Mivel a view `resources/views/greeting.php` néven van tárolva, a controllerben vissza tudjuk adni azt a globális `view` helperrel:
 
     Route::get('/', function () {
         return view('greeting', ['name' => 'James']);
     });
 
-Mint ahogy látod, az első átadott paraméter a `view` helpernek a fájl neve amit a `resources/views` könyvtárban tároltunk. A második paraméter egy tömb(array) és így elérhető a view számára. Ebben az esetben a `name` változót adtuk át és a  [Blade syntax](/docs/{{version}}/blade) segítségével jelentítettük meg.
+Mint ahogy látod, a `view` helpernek átadott első paraméter a fájl neve, amit a `resources/views` könyvtárban tároltunk. A második paraméter egy tömb (array), és az ebben található változók érhetők el a view számára. Ebben az esetben a `name` változót adtuk át és a [Blade syntax](/docs/{{version}}/blade) segítségével jelentítettük meg.
 
-Természetesen a view -kat is lehet szeparálni alkönyvtárakba a `resources/views` mappán belül. "Dot" azaz pontokkal fűzve tudunk az alkönyvtárakban megtalálható view -kra hivatkozni. Például ha a viewd `resources/views/admin/profile.php` van tárolva, így tudsz hivatkozni rá:
+Természetesen a view-k alkönyvtárakba is szeparálhatók a `resources/views` mappán belül. Az alkönyvtárakban található view-k hivatkozása a "dot syntax"-szal, azaz pontokkal összefűzve lehetséges. Például ha a view-d a `resources/views/admin/profile.php` helyen van tárolva, így tudsz hivatkozni rá:
 
     return view('admin.profile', $data);
 
-#### Derítsük ki ,hogy egy View létezik
+#### Egy View ellenőrzése
 
-Ha le kell ellenőrizned,hogy egy view létezik-e vagy sem akkor `View` facadeot érdemes használni. Az `exists` methódusa `true` értékkel tér vissza ha igaz:
+Ha le kell ellenőrizned, hogy egy view létezik-e vagy sem, akkor a `View` facade-ot érdemes használni. Az `exists` metódus `true` értékkel tér vissza, ha a view létezik:
 
     use Illuminate\Support\Facades\View;
 
@@ -41,20 +41,20 @@ Ha le kell ellenőrizned,hogy egy view létezik-e vagy sem akkor `View` facadeot
     }
 
 <a name="passing-data-to-views"></a>
-## Adatok átadása View -knak
+## Adatok átadása a View-knak
 
-Mint ahogy láttad az előző példában így tudsz átadni egy adat tömböt a viewnak:
+Mint ahogy láttad az előző példában, így tudsz átadni egy adat tömböt a view-nak:
 
     return view('greetings', ['name' => 'Victoria']);
 
-Amikor adatot adsz át ilyen módon a `$data` egy tömb lesz (key/value) kulcs/érték párokkal. A viewdban minden értéket elérsz a hozzá tartozó kulcs használatával, pédául `<?php echo $key; ?>`. Alternatívaként egy tömb helyett egyes elemeket is át lehet adni a `view` helpernek, a `with` methódus használatásal:
+Amikor adatot adsz át ilyen módon, a `$data` paraméternek (a második paraméter) egy tömbnek kell lennie kulcs/érték párokkal. A view-dban minden ily módon átadott változó elérhető a hozzá tartozó kulcs használatával, pédául `<?php echo $key; ?>`. Alternatívaként egy tömb helyett egyes elemeket is át lehet adni a `view` helpernek. Erre a `with` methódus használható:
 
     return view('greeting')->with('name', 'Victoria');
 
 <a name="sharing-data-with-all-views"></a>
-#### Adatok megosztása az össze Viewal
+#### Adatok megosztása az össze View-val
 
-Előfordulhat, hogy alkalmanként az összes view számára elérhetővé kell tenni az adatok egy részét . Amit meg a view facade's `share` methódusával tudsz elérni. Általánosságban a `share`-t egy (Service Provider) Szolgáltatás kiszolgáló `boot` methódusában helyezzük el. Nyugodtan használható az `AppServiceProvider` vagy készítesz egy különálló service provider-t ahol tárolni akarod:
+Előfordulhat, hogy alkalmanként az összes view számára elérhetővé kell tenni bizonyos adatokat. Ezt meg a View facade `share` metódusával teheted meg. Általánosságban a `share`-t egy Service Provider `boot` methódusában helyezzük el. Nyugodtan használd az `AppServiceProvider`-t, vagy akár egy különálló service provider-t is készíthetsz:
 
     <?php
 
@@ -88,9 +88,9 @@ Előfordulhat, hogy alkalmanként az összes view számára elérhetővé kell t
 <a name="view-composers"></a>
 ## View Composerek
 
-View composerek akkor hívódnak meg ha egy callback vagy class(osztály) methódusai hivatkozik rájuk. Ha egy bizonyos adatot egy viewhoz szeretnél kötni ami minden alkalommal lefut a view renderelésekor, akkor a view composer segítségűl hívva könnyedén elszeparálhatod a logikai feladatokat egy helyre.
+A View composerek olyan callback-ek vagy osztálymetódusok, amelyek egy-egy view renderelése során kerülnek meghívásra. Ha egy bizonyos adatot egy view minden renderelésekor elérhetővé szeretnél tenni, akkor a view composer-t segítségűl hívva könnyedén elszeparálhatod ezeket a logikai feladatokat egy helyre.
 
-Ebben a példában létrehozunk egy view composer-t a  [service provider](/docs/{{version}}/providers)-en belül. Ehhez a `View` facade-ot fogjuk használni amit `Illuminate\Contracts\View\Factory` contract implementáció tartalmaz. Ne feletjsük el, a Laravelnek nincs előre megadott könyvtára ahol tároljuk a view composereket. Úgy helyezd el ahogy neked szimpatikus. Például, létrehozhatsz neki egy `App\Http\ViewComposers` könyvtárat:
+Ebben a példában létrehozunk egy view composer-t a [service provider](/docs/{{version}}/providers)-en belül. Ehhez a `View` facade-ot fogjuk használni, ami a `Illuminate\Contracts\View\Factory` interface által definiált szolgáltatásokat nyújtja. Ne feletjsük el, a Laravelnek nincs előre megadott könyvtára a view composerek tárolására, úgy helyezed el őket, ahogy neked szimpatikus. Például létrehozhatsz nekik egy `App\Http\ViewComposers` könyvtárat:
 
     <?php
 
@@ -130,9 +130,9 @@ Ebben a példában létrehozunk egy view composer-t a  [service provider](/docs/
         }
     }
 
-> {jegyzet} Ha létrehozol egy saját service provider-t ami tartalmazza majd a view composereket, akkor a `config/app.php` configurációs fájlba fel kell venni a `providers` tömbbe a betöltendő service providerek közé.
+> {jegyzet} Ha létrehozol egy saját service provider-t, ami a view composereket tartalmazza, akkor azt a `config/app.php` konfigurációs fájl   `providers` tömbjében fel kell tüntetni.
 
-Most ,hogy regisztráltunk egy saját compsert, a `ProfileComposer@compose` methódus fog végrehajtódni amikor a `profile` view renderelésre kerül. Szóval hozzunk létre egy composer (class)osztályt:
+Most, hogy regisztráltunk egy saját compsert, a `ProfileComposer@compose` methódus fog végrehajtódni minden alkalommal, amikor a `profile` view renderelésre kerül. Hozzunk tehát létre egy view composer osztályt:
 
     <?php
 
@@ -174,20 +174,20 @@ Most ,hogy regisztráltunk egy saját compsert, a `ProfileComposer@compose` meth
         }
     }
 
-Mielött a view renderelésre kerülne a composer `compose` methódusa meghívásra kerül `Illuminate\View\View` példánya által. A `with` methódus által hozzá kapcsoljuk az adatunkat a viewhoz.
+Mielött a view renderelésre kerülne, a composer `compose` methódusa meghívásra kerül, átadva a `Illuminate\View\View` példányát paraméterként. A `with` methódus által így hozzákapcsolhatjuk az adatunkat a viewhoz.
 
-> {tipp} Mivel az összes view compsoser a [service container](/docs/{{version}}/container) által használunk, érdemes a szükséges függőségeket már a construktorban átadni.
+> {tipp} Mivel az összes view composer a [service container](/docs/{{version}}/container) által kerül meghívásra, a szükséges függőségeket akár a konstruktorban type hynt-elheted.
 
-#### Composer hozzárendelése több Viewhoz
+#### Composer hozzárendelése több View-hoz
 
-Szükséged lehet rá,hogy egy view composer több viewnak is átadjon adatot. A `composer` methódusának tömböt átadva első paramétereként lehetőségünk van rá:
+Szükség lehet rá, hogy egy view composer több view-nak is átadjon adatot. Ezt megtehetjük a `composer` metódus első paramétereként tömböt átadva:
 
     View::composer(
         ['profile', 'dashboard'],
         'App\Http\ViewComposers\MyViewComposer'
     );
 
-A `composer` methódus elfogadja a `*` karatert, ezáltal minden viewhoz hozzárendelődik:
+A `composer` metódus elfogadja a `*` karatert is, amivel a beállított view composer minden view-hoz hozzárendelődik:
 
     View::composer('*', function ($view) {
         //
@@ -195,6 +195,6 @@ A `composer` methódus elfogadja a `*` karatert, ezáltal minden viewhoz hozzár
 
 #### View Creators
 
-A View **creators** nagyon hasonlóak a view composerhez. Azonban ezek azonnal végrehajtódnak mikor a view példányosításra kerül, ahelyett hogy megvárná a renderelés végét. A view creator használatához, használd a `creator` methódust:
+A View **creator**-ok nagyon hasonlóak a view composerhez, azzal a különbséggel, hogy ezek azonnal meghívásra kerülnek, amikor egy view példányosításra kerül, nem várnak a view renderelésének kezdetére. A view creator használatához, használd a `creator` methódust:
 
     View::creator('profile', 'App\Http\ViewCreators\ProfileCreator');
