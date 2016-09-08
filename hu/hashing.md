@@ -43,7 +43,7 @@ A `Hash` facade `make` metódusával generálhatsz hash -t a jelszóból:
 
 #### Ellenőrizd, hogy A Jelszó Megfelelő-e
 
-A `check` metódus lehetővé teszi, hogy egy egyszerű stringről eldöntsd, hogy a megadott hash előállítható-e belőle. Ha a `LoginController` [included with Laravel](/docs/{{version}}/authentication) -t használod, akkor ezzel nem kell törődnöd, mert a vezérlő ezt automatikusan hívja meg helyetted:
+A `check` metódus lehetővé teszi, hogy egy egyszerű stringről eldöntsd, hogy a megadott hash előállítható-e belőle. Ha a `LoginController` [Laravel része](/docs/{{version}}/authentication) -t használod, akkor ezzel nem kell törődnöd, mert a vezérlő ezt automatikusan hívja meg helyetted:
 
     if (Hash::check('plain-text', $hashedPassword)) {
         // The passwords match...
