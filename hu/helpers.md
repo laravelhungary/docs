@@ -1,4 +1,4 @@
-# Helper Functions
+# Helperek
 
 - [Bevezetés](#introduction)
 - [Elérhető Helperek](#available-methods)
