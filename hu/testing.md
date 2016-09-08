@@ -21,7 +21,7 @@ Szabadon definiálhatsz más teszkörnyezet-konfigurációs változókat amennyi
 <a name="creating-and-running-tests"></a>
 ## Tesztek készítése és futtatása
 
-Új tesztek készítéséhez használd a `make:test` Artisan parancsot:
+Új teszteset készítéséhez használd a `make:test` Artisan parancsot:
 
     php artisan make:test UserTest
 
