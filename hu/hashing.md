@@ -6,14 +6,14 @@
 <a name="introduction"></a>
 ## Bevezetés
 
-A Laravel `Hash` [facade](/docs/{{version}}/facades) lehetőséget ad a biztonságos Bcrypt hashelésre a felhasználói jelszavak tárolásához. Ha a beépített `LoginController` és a `RegisterController` classokat használod a Laravel alkalmazásodhoz, ezek automatikusan használják a Bcrypt -et a regisztrációhoz és az authentikációhoz.
+A Laravel `Hash` [facade](/docs/{{version}}/facades) lehetőséget ad a biztonságos Bcrypt hashelésre a felhasználói jelszavak tárolásához. Ha a beépített `LoginController` és a `RegisterController` osztályokat használod a Laravel alkalmazásodhoz, ezek automatikusan a Bcrypt hashelést alkalmazzák a regisztrációhoz és az authentikációhoz.
 
-> {tip} A Bcrypt remek választás a jelszavak hashelésére, hiszen a nehézségi szintje "work factor" beállítható, ami azt jelenti, hogy növelhető az előállításához szükséges hardveridő.
+> {tip} A Bcrypt remek választás a jelszavak hashelésére, hiszen beállítható a nehézségi szintje ("work factor"), ami azt jelenti, hogy ahogy a hardverek erősödnek, a hash előállításához szükgéges idő is növelhető.
 
 <a name="basic-usage"></a>
 ## Használat
 
-A `Hash` facade `make` metódusával generálhatsz hash -t a jelszóból:
+A `Hash` facade `make` metódusával generálhatsz hash-t a jelszóból:
 
     <?php
 
@@ -41,18 +41,17 @@ A `Hash` facade `make` metódusával generálhatsz hash -t a jelszóból:
         }
     }
 
-#### Ellenőrizd, hogy A Jelszó Megfelelő-e
+#### A helyes jelszó ellenőrzése
 
-A `check` metódus lehetővé teszi, hogy egy egyszerű stringről eldöntsd, hogy a megadott hash előállítható-e belőle. Ha a [Laravel által biztosított](/docs/{{version}}/authentication) `LoginController` -t  használod, akkor ezzel nem kell törődnöd, mert a vezérlő ezt automatikusan hívja meg helyetted:
+A `check` metódus lehetővé teszi, hogy egy egyszerű stringről eldöntsd, a megadott hash előállítható-e belőle. Ha a [Laravel által biztosított](/docs/{{version}}/authentication) `LoginController`-t  használod, akkor ezzel nem kell törődnöd, mert a controller automatikusan meghívja helyetted:
 
     if (Hash::check('plain-text', $hashedPassword)) {
         // The passwords match...
     }
 
-#### Ellenőrizd, hogy A Jelszót Újra Kell-e Hashelni
+#### A jelszó újrahashelése
 
-
-A `needsRehash` függvény lehetővé teszi számodra, hogy eldöntsd, hogy a letárolt hash -t szükséges-e a hasher lecserélése miatt újrakódolni:
+A `needsRehash` függvény lehetővé teszi számodra, hogy eldöntsd, szükséges-e a letárolt hash-t a hash metódus megváltozása miatt újrahashelni:
 
     if (Hash::needsRehash($hashed)) {
         $hashed = Hash::make('plain-text');
