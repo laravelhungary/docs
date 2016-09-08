@@ -6,7 +6,7 @@
 <a name="introduction"></a>
 ## Bevezetés
 
-A Laravel különböző globális "helper" függvényeket tartalmaz. Ezek közül sokat a keretrendszer használ, de te is felhasználhatod őket az alkalmazásodhoz.
+A Laravel különböző globális "helper" (segéd) függvényeket tartalmaz. Ezek közül sokat a keretrendszer használ, de te is felhasználhatod őket az alkalmazásodhoz.
 
 <a name="available-methods"></a>
 ## Elérhető Helperek
@@ -145,12 +145,12 @@ A Laravel különböző globális "helper" függvényeket tartalmaz. Ezek közü
 </style>
 
 <a name="arrays"></a>
-## Arrays
+## Tömbök
 
 <a name="method-array-add"></a>
 #### `array_add()` {#collection-method .first-collection-method}
 
-Az `array_add` function hozzáad egy kulcs / érték párt a tömbhöz, ha a megadott kulcs még nem létezik:
+Az `array_add` függvény hozzáad egy kulcs / érték párt a tömbhöz, ha a megadott kulcs még nem létezik:
 
     $array = array_add(['name' => 'Desk'], 'price', 100);
 
@@ -159,7 +159,7 @@ Az `array_add` function hozzáad egy kulcs / érték párt a tömbhöz, ha a meg
 <a name="method-array-collapse"></a>
 #### `array_collapse()` {#collection-method}
 
-Az `array_collapse` function tömböket egyesít egy tömbbe:
+Az `array_collapse` függvény tömböket egyesít egy tömbbe:
 
     $array = array_collapse([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
 
@@ -168,7 +168,7 @@ Az `array_collapse` function tömböket egyesít egy tömbbe:
 <a name="method-array-divide"></a>
 #### `array_divide()` {#collection-method}
 
-Az `array_divide` function két tömbbel tér vissza, az egyik a paraméterül kapott tömb key -eit, a másik pedig az értékeit tartalmazza:
+Az `array_divide` függvény két tömbbel tér vissza, az egyik a paraméterül kapott tömb kulcsait, a másik pedig az értékeit tartalmazza:
 
     list($keys, $values) = array_divide(['name' => 'Desk']);
 
@@ -179,7 +179,7 @@ Az `array_divide` function két tömbbel tér vissza, az egyik a paraméterül k
 <a name="method-array-dot"></a>
 #### `array_dot()` {#collection-method}
 
-Az `array_dot` function egy többdimenziós tömböt valósít meg egy egyszintű tömbben úgy, hogy a különböző szinteket a key -ben ponttal "dot" választja el:
+Az `array_dot` függvény egy többdimenziós tömböt valósít meg egy egyszintű tömbben úgy, hogy a különböző szinteket a kulcsban ponttal ("dot") választja el:
 
     $array = array_dot(['foo' => ['bar' => 'baz']]);
 
@@ -188,7 +188,7 @@ Az `array_dot` function egy többdimenziós tömböt valósít meg egy egyszint�
 <a name="method-array-except"></a>
 #### `array_except()` {#collection-method}
 
-Az `array_except` function eltávolítja a megadott kulcs / érték párt a megadott tömbből:
+Az `array_except` függvény eltávolítja a megadott kulcs / érték párt a megadott tömbből:
 
     $array = ['name' => 'Desk', 'price' => 100];
 
@@ -199,7 +199,7 @@ Az `array_except` function eltávolítja a megadott kulcs / érték párt a mega
 <a name="method-array-first"></a>
 #### `array_first()` {#collection-method}
 
-Az `array_first` function visszaadja az első elemet a tömbből ami átmegy a megadott teszten:
+Az `array_first` függvény visszaadja az első elemet a tömbből, ami átmegy a megadott teszten:
 
     $array = [100, 200, 300];
 
@@ -209,14 +209,14 @@ Az `array_first` function visszaadja az első elemet a tömbből ami átmegy a m
 
     // 200
 
-A default paraméterben megadható egy érték ami akkor kerül visszaadásra ha nincs olyan elem ami átmenne a teszten:
+A default paraméterben megadható egy érték, ami akkor kerül visszaadásra ha nincs olyan elem, ami átmenne a teszten:
 
     $value = array_first($array, $callback, $default);
 
 <a name="method-array-flatten"></a>
 #### `array_flatten()` {#collection-method}
 
-Az `array_flatten` function egy többdimenziós tömböt reprezentál egy szinten:
+Az `array_flatten` függvény egy többdimenziós tömböt alakít át egydimenziósra:
 
     $array = ['name' => 'Joe', 'languages' => ['PHP', 'Ruby']];
 
@@ -227,7 +227,7 @@ Az `array_flatten` function egy többdimenziós tömböt reprezentál egy szinte
 <a name="method-array-forget"></a>
 #### `array_forget()` {#collection-method}
 
-Az `array_forget` function eltávolít egy kulcs / érték párt egy többdimenziós tömbből úgy, hogy ponttal "dot" elválasztva adtuk meg a többdimenziós kulcsot:
+Az `array_forget` függvény eltávolít egy kulcs / érték párt egy többdimenziós tömbből. A többdimenziós kulcsot ponttal ("dot") elválasztva adjuk meg:
 
     $array = ['products' => ['desk' => ['price' => 100]]];
 
@@ -238,7 +238,7 @@ Az `array_forget` function eltávolít egy kulcs / érték párt egy többdimenz
 <a name="method-array-get"></a>
 #### `array_get()` {#collection-method}
 
-Az `array_get` function visszaad egy értéket az akár többdimenziós tömbből úgy, hogy a kulcsot ponttal "dot" elválasztva adtuk meg:
+Az `array_get` függvény visszaad egy értéket egy akár többdimenziós tömbből a kulcsot ponttal ("dot") megadva:
 
     $array = ['products' => ['desk' => ['price' => 100]]];
 
@@ -246,14 +246,14 @@ Az `array_get` function visszaad egy értéket az akár többdimenziós tömbbő
 
     // ['price' => 100]
 
-Az `array_get` function tartalmaz továbbá egy harmadik "default" értéket, amit akkor ad vissza, ha nem találta meg a kért kulcsot a tömbben:
+Az `array_get` függvény tartalmaz továbbá egy harmadik "default" értéket, amit akkor ad vissza, ha nem találta meg a kért kulcsot a tömbben:
 
     $value = array_get($array, 'names.john', 'default');
 
 <a name="method-array-has"></a>
 #### `array_has()` {#collection-method}
 
-Az `array_has` function megnézi, hogy a megadott ponttal "dot" elválasztott kulcs létezik-e a tömbben:
+Az `array_has` függvény megnézi, hogy a megadott ponttal ("dot") elválasztott kulcs létezik-e a tömbben:
 
     $array = ['products' => ['desk' => ['price' => 100]]];
 
@@ -264,7 +264,7 @@ Az `array_has` function megnézi, hogy a megadott ponttal "dot" elválasztott ku
 <a name="method-array-last"></a>
 #### `array_last()` {#collection-method}
 
-Az `array_last` function visszaadja az utolsó elemet a tömbből ami átmegy a megadott teszten:
+Az `array_last` függvény visszaadja az utolsó elemet a tömbből, ami átmegy a megadott teszten:
 
     $array = [100, 200, 300, 110];
 
@@ -277,7 +277,7 @@ Az `array_last` function visszaadja az utolsó elemet a tömbből ami átmegy a 
 <a name="method-array-only"></a>
 #### `array_only()` {#collection-method}
 
-Az `array_only` function csak a megadott key -el rendelkező elemeket adja vissza a tömbből:
+Az `array_only` function csak a megadott kulccsal / kulcsokkal rendelkező elemeket adja vissza a tömbből:
 
     $array = ['name' => 'Desk', 'price' => 100, 'orders' => 10];
 
@@ -288,7 +288,7 @@ Az `array_only` function csak a megadott key -el rendelkező elemeket adja vissz
 <a name="method-array-pluck"></a>
 #### `array_pluck()` {#collection-method}
 
-Az `array_pluck` function listákból segít kiolvasni a megadott feltételnek megfelelő key-ek értékeit:
+Az `array_pluck` függvény "kiszakít" a tömbből egy adott kulcs / érték listát:
 
     $array = [
         ['developer' => ['id' => 1, 'name' => 'Taylor']],
@@ -299,7 +299,7 @@ Az `array_pluck` function listákból segít kiolvasni a megadott feltételnek m
 
     // ['Taylor', 'Abigail'];
 
-Beállíthatod, hogy az eredménytömb key -ei mi alapján jöjjenek létre:
+Beállíthatod, hogy a visszaadott tömb kulcsai mi alapján jöjjenek létre:
 
     $array = array_pluck($array, 'developer.name', 'developer.id');
 
@@ -308,7 +308,7 @@ Beállíthatod, hogy az eredménytömb key -ei mi alapján jöjjenek létre:
 <a name="method-array-prepend"></a>
 #### `array_prepend()` {#collection-method}
 
-Az `array_prepend` function egy értéket ad hozzá a tömb elejéhez:
+Az `array_prepend` függvény egy értéket ad hozzá a tömb elejéhez:
 
     $array = ['one', 'two', 'three', 'four'];
 
@@ -319,7 +319,7 @@ Az `array_prepend` function egy értéket ad hozzá a tömb elejéhez:
 <a name="method-array-pull"></a>
 #### `array_pull()` {#collection-method}
 
-Az `array_pull` function eltávolít egy kulcs / érték párt a tömbből:
+Az `array_pull` függvény visszaad eltávolít egy kulcs / érték párt a tömbből:
 
     $array = ['name' => 'Desk', 'price' => 100];
 
@@ -332,7 +332,7 @@ Az `array_pull` function eltávolít egy kulcs / érték párt a tömbből:
 <a name="method-array-set"></a>
 #### `array_set()` {#collection-method}
 
-Az `array_set` function beállít egy értéket a tömbben úgy, hogy a kulcs nevét ponttal "dot" elválasztva adtad meg:
+Az `array_set` függvény beállít egy értéket a tömbben úgy, hogy a kulcs nevét ponttal ("dot") elválasztva adtad meg:
 
     $array = ['products' => ['desk' => ['price' => 100]]];
 
@@ -343,7 +343,7 @@ Az `array_set` function beállít egy értéket a tömbben úgy, hogy a kulcs ne
 <a name="method-array-sort"></a>
 #### `array_sort()` {#collection-method}
 
-Az `array_sort` function egy tömböt rendez a megadott Closure alapján:
+Az `array_sort` függvény egy tömböt rendez sorba a megadott Closure alapján:
 
     $array = [
         ['name' => 'Desk'],
@@ -364,7 +364,7 @@ Az `array_sort` function egy tömböt rendez a megadott Closure alapján:
 <a name="method-array-sort-recursive"></a>
 #### `array_sort_recursive()` {#collection-method}
 
-Az `array_sort_recursive` function rekurzívan rendez egy tömböt a `sort` function -t használva:
+Az `array_sort_recursive` függvény rekurzívan rendez egy tömböt a `sort` függvényt használva:
 
     $array = [
         [
@@ -399,7 +399,7 @@ Az `array_sort_recursive` function rekurzívan rendez egy tömböt a `sort` func
 <a name="method-array-where"></a>
 #### `array_where()` {#collection-method}
 
-Az `array_where` function megszűri a tömb értékeit a megadott Closure alapján:
+Az `array_where` függvény megszűri a tömb értékeit a megadott Closure alapján:
 
     $array = [100, '200', 300, '400', 500];
 
@@ -412,7 +412,7 @@ Az `array_where` function megszűri a tömb értékeit a megadott Closure alapj�
 <a name="method-head"></a>
 #### `head()` {#collection-method}
 
-A `head` function egyszerűen visszaadja a tömb első értékét:
+A `head` függvény egyszerűen visszaadja a tömb első értékét:
 
     $array = [100, 200, 300];
 
@@ -423,7 +423,7 @@ A `head` function egyszerűen visszaadja a tömb első értékét:
 <a name="method-last"></a>
 #### `last()` {#collection-method}
 
-A `last` function visszaadja a tömb utolsó elemét:
+A `last` függvény visszaadja a tömb utolsó elemét:
 
     $array = [100, 200, 300];
 
@@ -437,7 +437,7 @@ A `last` function visszaadja a tömb utolsó elemét:
 <a name="method-app-path"></a>
 #### `app_path()` {#collection-method}
 
-Az `app_path` function visszaadja a teljes elérési utat az `app` könyvtárhoz. Felhasználhatod arra az `app_path` függvényt, hogy az app könyvtáron belül teljes útvonalat kapj meg relatív útvonalak helyett:
+Az `app_path` függvény visszaadja a teljes elérési utat az `app` könyvtárhoz. Felhasználhatod arra is az `app_path` függvényt, hogy az app könyvtáron belül teljes útvonalat kapj meg relatív útvonalak helyett:
 
     $path = app_path();
 
@@ -446,7 +446,7 @@ Az `app_path` function visszaadja a teljes elérési utat az `app` könyvtárhoz
 <a name="method-base-path"></a>
 #### `base_path()` {#collection-method}
 
-Az `base_path` function visszaadja a teljes elérési utat a projekt gyökérkönyvtárához. Felhasználhatod arra a `base_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett:
+Az `base_path` függvény visszaadja a teljes elérési utat a projekt gyökérkönyvtárához. Felhasználhatod arra is a `base_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett:
 
     $path = base_path();
 
@@ -455,35 +455,35 @@ Az `base_path` function visszaadja a teljes elérési utat a projekt gyökérkö
 <a name="method-config-path"></a>
 #### `config_path()` {#collection-method}
 
-A `config_path` function visszaadja a teljes elérési utat a config könyvtárhoz:
+A `config_path` függvény visszaadja a teljes elérési utat a config könyvtárhoz:
 
     $path = config_path();
 
 <a name="method-database-path"></a>
 #### `database_path()` {#collection-method}
 
-A `database_path` function visszaadja a teljes elérési utat a database könyvtárhoz:
+A `database_path` függvény visszaadja a teljes elérési utat a database könyvtárhoz:
 
     $path = database_path();
 
 <a name="method-elixir"></a>
 #### `elixir()` {#collection-method}
 
-Az `elixir` function visszaadja az elérési útját az [Elixir file -nak](/docs/{{version}}/elixir):
+Az `elixir` függvény visszaadja az elérési útját az [Elixir fájl-nak](/docs/{{version}}/elixir):
 
     elixir($file);
 
 <a name="method-public-path"></a>
 #### `public_path()` {#collection-method}
 
-A `public_path` function visszaadja a teljes elérési útját a `public` könyvtárnak:
+A `public_path` függvény visszaadja a teljes elérési útját a `public` könyvtárnak:
 
     $path = public_path();
 
 <a name="method-resource-path"></a>
 #### `resource_path()` {#collection-method}
 
-A `resource_path` function visszaadja a teljes elérési útját a `resources` könyvtárnak. Felhasználhatod arra a `resource_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett: 
+A `resource_path` függvény visszaadja a teljes elérési útját a `resources` könyvtárnak. Felhasználhatod arra is a `resource_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett: 
 
     $path = resource_path();
 
@@ -492,7 +492,7 @@ A `resource_path` function visszaadja a teljes elérési útját a `resources` k
 <a name="method-storage-path"></a>
 #### `storage_path()` {#collection-method}
 
-A `storage_path` function visszaadja a teljes elérési útját a `storage` könyvtárnak. Felhasználhatod arra a `storage_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett: 
+A `storage_path` function visszaadja a teljes elérési útját a `storage` könyvtárnak. Felhasználhatod arra is a `storage_path` függvényt, hogy a projekten belül teljes útvonalat kapj meg a relatív útvonalak helyett: 
 
     $path = storage_path();
 
@@ -504,7 +504,7 @@ A `storage_path` function visszaadja a teljes elérési útját a `storage` kön
 <a name="method-camel-case"></a>
 #### `camel_case()` {#collection-method}
 
-A `camel_case` function átalakítja a kapott szöveget `camelCase` -é:
+A `camel_case` függvény átalakítja a kapott szöveget `camelCase`-re:
 
     $camel = camel_case('foo_bar');
 
@@ -513,7 +513,7 @@ A `camel_case` function átalakítja a kapott szöveget `camelCase` -é:
 <a name="method-class-basename"></a>
 #### `class_basename()` {#collection-method}
 
-A `class_basename` visszaadja a class kapott namespace -el ellátott class névből csak a class nevét:
+A `class_basename` függvény visszaadja egy adott osztály nevét a namespace-ek (névterek) nélkül:
 
     $class = class_basename('Foo\Bar\Baz');
 
@@ -522,7 +522,7 @@ A `class_basename` visszaadja a class kapott namespace -el ellátott class névb
 <a name="method-e"></a>
 #### `e()` {#collection-method}
 
-Az `e` function lefuttatja a `htmlentities` függvényt a kapott stringen:
+Az `e` függvény lefuttatja a `htmlentities` függvényt a kapott stringen:
 
     echo e('<html>foo</html>');
 
@@ -531,7 +531,7 @@ Az `e` function lefuttatja a `htmlentities` függvényt a kapott stringen:
 <a name="method-ends-with"></a>
 #### `ends_with()` {#collection-method}
 
-Az `ends_with` visszaadja, hogy a kapott string vége a megadott végződéssel egyezik-e:
+Az `ends_with` függvény visszaadja, hogy a kapott string vége a megadott stringgel végződik-e:
 
     $value = ends_with('This is my name', 'name');
 
@@ -540,7 +540,7 @@ Az `ends_with` visszaadja, hogy a kapott string vége a megadott végződéssel 
 <a name="method-snake-case"></a>
 #### `snake_case()` {#collection-method}
 
-A `snake_case` function étakajítha a kapott szöveget `snake_case` -re:
+A `snake_case` függvény átalakítja a kapott szöveget `snake_case`-re:
 
     $snake = snake_case('fooBar');
 
@@ -549,8 +549,7 @@ A `snake_case` function étakajítha a kapott szöveget `snake_case` -re:
 <a name="method-str-limit"></a>
 #### `str_limit()` {#collection-method}
 
-Az `str_limit` function karakterlimitet állít a megadott string -en.
-The `str_limit` function limits the number of characters in a string. Első paraméterben megadható mag aa string, a második paraméter pedig megadja, hogy maximum hány karakternél vágja el:
+Az `str_limit` függvény limitálja a megadott string hosszát. Első paraméterben megadható meg a string, a második paraméter pedig megadja, hogy maximum hány karakternél legyen elvágva:
 
     $value = str_limit('The PHP framework for web artisans.', 7);
 
@@ -559,7 +558,7 @@ The `str_limit` function limits the number of characters in a string. Első para
 <a name="method-starts-with"></a>
 #### `starts_with()` {#collection-method}
 
-A `starts_with` function visszaadja, hogy a kapott string eleje a megadott stringgel kezdődik-e:
+A `starts_with` függvény visszaadja, hogy a kapott string eleje a megadott stringgel kezdődik-e:
 
     $value = starts_with('This is my name', 'This');
 
@@ -568,7 +567,7 @@ A `starts_with` function visszaadja, hogy a kapott string eleje a megadott strin
 <a name="method-str-contains"></a>
 #### `str_contains()` {#collection-method}
 
-Az `str_contains` function visszaadja, hogy a megadott szöveg tartalmazza-e a paraméterül kapott stringet:
+Az `str_contains` függvény visszaadja, hogy a megadott szöveg tartalmazza-e a paraméterül kapott stringet:
 
     $value = str_contains('This is my name', 'my');
 
@@ -577,7 +576,7 @@ Az `str_contains` function visszaadja, hogy a megadott szöveg tartalmazza-e a p
 <a name="method-str-finish"></a>
 #### `str_finish()` {#collection-method}
 
-A `str_finish` function a szöveg végéhez fűzi a kapott stringet:
+A `str_finish` függvény a szöveg végéhez fűzi a kapott stringet:
 
     $string = str_finish('this/string', '/');
 
@@ -586,7 +585,7 @@ A `str_finish` function a szöveg végéhez fűzi a kapott stringet:
 <a name="method-str-is"></a>
 #### `str_is()` {#collection-method}
 
-Az `str_is` function visszaadja, hogy a kapott minta illesztkedik-e a stringre. Csillag használható wildcard -nak:
+Az `str_is` függvény visszaadja, hogy a kapott minta illesztkedik-e a stringre. Csillag wildcard is használható:
 
     $value = str_is('foo*', 'foobar');
 
@@ -599,7 +598,7 @@ Az `str_is` function visszaadja, hogy a kapott minta illesztkedik-e a stringre. 
 <a name="method-str-plural"></a>
 #### `str_plural()` {#collection-method}
 
-A `str_plural` function átalakítja a megkapott stringet a többes számú alakjává. Ez a függvény jelenleg csak angol nyelven működik:
+A `str_plural` függvény átalakítja a megkapott stringet annak a többes számú alakjává. Ez a függvény jelenleg csak angol nyelven működik:
 
     $plural = str_plural('car');
 
@@ -622,14 +621,14 @@ Második paraméternek megadható egy integer, és az `str_plural` ennek a szám
 <a name="method-str-random"></a>
 #### `str_random()` {#collection-method}
 
-Az `str_random` function egy megadott hosszúságú random stringet generál. Ez a függvény a PHP's `random_bytes` függvényét használja:
+Az `str_random` függvény egy megadott hosszúságú véletlen stringet generál. Ez a függvény a PHP `random_bytes` függvényét használja:
 
     $string = str_random(40);
 
 <a name="method-str-singular"></a>
 #### `str_singular()` {#collection-method}
 
-Az `str_singular` function a megadott stringet visszaadja az egyes számú alakjában. Ez a függvény jelenleg csak az angol nyelvű szavakkal működik:
+Az `str_singular` függvény visszaadja a megadott stringet az egyes számú alakjában. Ez a függvény jelenleg csak az angol nyelvű szavakkal működik:
 
     $singular = str_singular('cars');
 
@@ -638,7 +637,7 @@ Az `str_singular` function a megadott stringet visszaadja az egyes számú alakj
 <a name="method-str-slug"></a>
 #### `str_slug()` {#collection-method}
 
-Az `str_slug` function a megadott stringből egy URL barát "slug" formát ad vissza:
+Az `str_slug` függvény a megadott stringből egy URL barát "slug" formát ad vissza:
 
     $title = str_slug('Laravel 5 Framework', '-');
 
@@ -647,7 +646,7 @@ Az `str_slug` function a megadott stringből egy URL barát "slug" formát ad vi
 <a name="method-studly-case"></a>
 #### `studly_case()` {#collection-method}
 
-Az `studly_case` function a megadott stringet átalakítja `StudlyCase` -re:
+Az `studly_case` átalakítja function a megadott stringet `StudlyCase`-re:
 
     $value = studly_case('foo_bar');
 
@@ -656,7 +655,7 @@ Az `studly_case` function a megadott stringet átalakítja `StudlyCase` -re:
 <a name="method-title-case"></a>
 #### `title_case()` {#collection-method}
 
-A `title_case` function a megadott stringet átalakítja `Title Case` -re:
+A `title_case` függvény átalakítja a megadott stringet  `Title Case`-re:
 
     $title = title_case('a nice title uses the correct case');
 
@@ -665,50 +664,50 @@ A `title_case` function a megadott stringet átalakítja `Title Case` -re:
 <a name="method-trans"></a>
 #### `trans()` {#collection-method}
 
-A `trans` function lefordítja a kapott stringet a [localization file](/docs/{{version}}/localization) segítségével:
+A `trans` függvény lefordítja a kapott stringet a [lokalizációs fájl](/docs/{{version}}/localization) segítségével:
 
     echo trans('validation.required'):
 
 <a name="method-trans-choice"></a>
 #### `trans_choice()` {#collection-method}
 
-A `trans_choice` function lefordítja a kapott nyelvi kulcsot a nyelvi file segítségével:
+A `trans_choice` függvény lefordítja a kapott nyelvi kulcsot a nyelvi fájl segítségével, egyeztetve az egyes / többes számot:
 
     $value = trans_choice('foo.bar', $count);
 
 <a name="urls"></a>
-## URL -ek
+## URL-ek
 
 <a name="method-action"></a>
 #### `action()` {#collection-method}
 
 
-Az `action` function visszaadja az URL -t a kapott controller@action -höz. Nem kell a teljes namespace -t átadnod a controllerhez, helyette használd a relatív namespace -t a `App\Http\Controllers` -hez képest:
+Az `action` függvény visszaadja az URL-t a kapott controller@action-höz. Nem kell a teljes namespace-t átadnod a controllerhez, helyette használd a relatív namespace-t a `App\Http\Controllers`-hez képest:
 
     $url = action('HomeController@getIndex');
 
-Ha a route paramétereket is kezel ezeket a második paraméterben adhatod át:
+Ha a route paramétereket is kezelm ezeket a második paraméterben adhatod át:
 
     $url = action('UserController@profile', ['id' => 1]);
 
 <a name="method-asset"></a>
 #### `asset()` {#collection-method}
 
-Egy asset file -hoz generál teljes url-t figyelembe véve, hogy HTTP vagy HTTPS -e a kérés:
+Egy asset fájlhoz generál teljes url-t figyelembe véve, hogy HTTP vagy HTTPS-e a kérés:
 
 	$url = asset('img/photo.jpg');
 
 <a name="method-secure-asset"></a>
 #### `secure_asset()` {#collection-method}
 
-URL-t generál egy asset -re HTTPS -t használva
+URL-t generál egy asset fájlhoz HTTPS-t használva
 
 	echo secure_asset('foo/bar.zip', $title, $attributes = []);
 
 <a name="method-route"></a>
 #### `route()` {#collection-method}
 
-A `route` function egy URL -t ad vissza a megadott nevű route -hoz:
+A `route` függvény egy URL-t ad vissza a megadott nevű route-hoz:
 
     $url = route('routeName');
 
@@ -719,7 +718,7 @@ Ha a route paramétereket is kezel, akkor ezeket a második paraméterben adhato
 <a name="method-url"></a>
 #### `url()` {#collection-method}
 
-Az `url` function abszolút elérési utat generál a megadott relatív linkre:
+Az `url` függvény abszolút elérési utat generál a megadott relatív linkre:
 
     echo url('user/profile');
 
@@ -737,7 +736,7 @@ Ha nincs elérési út megadva, akkor `Illuminate\Routing\UrlGenerator` példán
 <a name="method-abort"></a>
 #### `abort()` {#collection-method}
  
-Az `abort` function HTTP exception -t dob, amit az exception handler kap el:
+Az `abort` függvény HTTP exception-t dob, amit az exception handler kap el:
 
     abort(401);
 
@@ -748,49 +747,49 @@ Második paraméterben megadható az exception üzenete:
 <a name="method-abort-if"></a>
 #### `abort_if()` {#collection-method}
 
-Az `abort_if` function HTTP exceptiont dob, ha az első paramétere `true`:
+Az `abort_if` függvény HTTP exceptiont dob, ha az első paramétere `true`:
 
     abort_if(! Auth::user()->isAdmin(), 403);
 
 <a name="method-abort-unless"></a>
 #### `abort_unless()` {#collection-method}
 
-Az `abort_unless` function HTTP exception -t dob, ha az első paramétere `false`:
+Az `abort_unless` függvény HTTP exceptiont dob, ha az első paramétere `false`:
 
     abort_unless(Auth::user()->isAdmin(), 403);
 
 <a name="method-auth"></a>
 #### `auth()` {#collection-method}
 
-Az `auth` function visszaad egy authentikált user példányt. Az `Auth` facade helyett használhatod:
+Az `auth` függvény visszaad egy authentikált user példányt. Az `Auth` facade helyett használhatod:
 
     $user = auth()->user();
 
 <a name="method-back"></a>
 #### `back()` {#collection-method}
 
-A `back()` function egy redirect -et generál a felhasználó előző oldalára (referer):
+A `back()` function egy átirányítást generál a felhasználó előző oldalára (referer):
 
     return back();
 
 <a name="method-bcrypt"></a>
 #### `bcrypt()` {#collection-method}
 
-A `bcrypt` function egy Bcrypt hash -t ad vissza. Felhasználhatod a `Hash` facade helyett:
+A `bcrypt` függvény egy Bcrypt hash-t ad vissza. Felhasználhatod a `Hash` facade helyett:
 
     $password = bcrypt('my-secret-password');
 
 <a name="method-collect"></a>
 #### `collect()` {#collection-method}
 
-A `collect` function egy [collection](/docs/{{version}}/collections) példányt ad vissza a megadott tömb helyett:
+A `collect` függvény egy [collection](/docs/{{version}}/collections) példányt ad vissza a megadott tömb helyett:
 
     $collection = collect(['taylor', 'abigail']);
 
 <a name="method-config"></a>
 #### `config()` {#collection-method}
 
-A `config` function visszaad egy config értéket. A config értékeket "dot" -al (ponttal) elválasztva kell megadni, ahol az első pont előtti rész a config file neve. A default értéket akkor adja vissza, ha a megadott értéket nem találta a configban:
+A `config` function visszaad egy config értéket. A config értékeket pottal ("dot") elválasztva kell megadni, ahol az első pont előtti rész a config fájl neve. A default értéket akkor adja vissza, a fájlban a megadott érték nem található.
 
     $value = config('app.timezone');
 
@@ -803,21 +802,21 @@ A `config` helper felhasználható arra, hogy a konfigurációs értékeket fut�
 <a name="method-csrf-field"></a>
 #### `csrf_field()` {#collection-method}
 
-A `csrf_field` function egy HTML `hidden` input field -et generál, aminek az értéke egy valid CSRF token. Felhasználható például [Blade szintaxisban](/docs/{{version}}/blade) így:
+A `csrf_field` függvény egy HTML `hidden` input mezőt generál, aminek az értéke az érvényes CSRF token. Felhasználható például [Blade szintaxisban](/docs/{{version}}/blade) így:
 
     {{ csrf_field() }}
 
 <a name="method-csrf-token"></a>
 #### `csrf_token()` {#collection-method}
 
-A `csrf_token` function visszaadja az aktuális valid CSRF token értékét:
+A `csrf_token` függvény visszaadja az aktuálisan érvényes CSRF token értékét:
 
     $token = csrf_token();
 
 <a name="method-dd"></a>
 #### `dd()` {#collection-method}
 
-A `dd` function dump -olja a kapott változót, majd leállítja az alkalmazás futását:
+A `dd` függvény dump-olja a kapott változót, majd leállítja az alkalmazás futását:
 
     dd($value);
 
@@ -830,14 +829,14 @@ Ha nem akarod leállítani az alkalmazást, akkor használd `dd` helyett a `dump
 <a name="method-dispatch"></a>
 #### `dispatch()` {#collection-method}
 
-A `dispatch` function egy új job -ot ad hozzá a Laravel [job queue](/docs/{{version}}/queues) -jához:
+A `dispatch` függvény egy új job-ot ad hozzá a Laravel [job queue](/docs/{{version}}/queues)-jához:
 
     dispatch(new App\Jobs\SendEmails);
 
 <a name="method-env"></a>
 #### `env()` {#collection-method}
 
-Az `env` function visszaadja az environment variable értékét:
+Az `env` függvény visszaadja egy környezeti változó értékét:
 
     $env = env('APP_ENV');
 
@@ -847,21 +846,21 @@ Az `env` function visszaadja az environment variable értékét:
 <a name="method-event"></a>
 #### `event()` {#collection-method}
 
-Az `event` function kivált egy [event](/docs/{{version}}/events) -et:
+Az `event` függvény kivált egy [event](/docs/{{version}}/events)-et:
 
     event(new UserRegistered($user));
 
 <a name="method-factory"></a>
 #### `factory()` {#collection-method}
 
-A `factory` function egy  model factory. Visszaadja a megadott classt a megadott példányszámban. Felhasználható [teszteléshez](/docs/{{version}}/database-testing#writing-factories) vagy [seedeléshez](/docs/{{version}}/seeding#using-model-factories):
+A `factory` függvény egy model factoryt ad vissza a megadott modelhez. Megadható az osztály neve és a létrehozandó példányok száma is. Felhasználható [teszteléshez](/docs/{{version}}/database-testing#writing-factories) vagy [seedeléshez](/docs/{{version}}/seeding#using-model-factories):
 
     $user = factory(App\User::class)->make();
 
 <a name="method-method-field"></a>
 #### `method_field()` {#collection-method}
 
-A `method_field` function egy HTML `hidden` input field -et ad viszsa, ami tartalmazza a form HTTP verb-et. Például [Blade -el használva](/docs/{{version}}/blade):
+A `method_field` függvény egy HTML `hidden` input mezőt ad viszsa, ami tartalmazza a form HTTP verb-et. Például [Blade-del használva](/docs/{{version}}/blade):
 
     <form method="POST">
         {{ method_field('DELETE') }}
@@ -870,7 +869,7 @@ A `method_field` function egy HTML `hidden` input field -et ad viszsa, ami tarta
 <a name="method-old"></a>
 #### `old()` {#collection-method}
 
-Az`old` function [visszaadja](/docs/{{version}}/requests#retrieving-input) az input fieldek régi értékeit, melyek session flash-ben voltak tárolva:
+Az `old` függvény [visszaadja](/docs/{{version}}/requests#retrieving-input) az inputok régi értékeit, melyek session flash-ben lettek tárolva:
 
     $value = old('value');
 
@@ -879,7 +878,7 @@ Az`old` function [visszaadja](/docs/{{version}}/requests#retrieving-input) az in
 <a name="method-redirect"></a>
 #### `redirect()` {#collection-method}
 
-A `redirect` function visszaad egy redirect HTTP response -t, vagy visszaad egy redirector példányt ha nem kapott paramétert:
+A `redirect` függvény visszaad egy redirect HTTP response-t, vagy visszaad egy redirector példányt, ha nem kapott paramétert:
 
     return redirect('/home');
 
@@ -888,7 +887,7 @@ A `redirect` function visszaad egy redirect HTTP response -t, vagy visszaad egy 
 <a name="method-request"></a>
 #### `request()` {#collection-method}
 
-A `request` function visszaadja az aktuális [request](/docs/{{version}}/requests) példányt:
+A `request` függvény visszaadja az aktuális [request](/docs/{{version}}/requests) példányt:
 
     $request = request();
 
@@ -897,7 +896,7 @@ A `request` function visszaadja az aktuális [request](/docs/{{version}}/request
 <a name="method-response"></a>
 #### `response()` {#collection-method}
 
-A `response` function létrehoz egy [response](/docs/{{version}}/responses) példányt, vagy ha nem kapott értéket akkor visszaad egy üres response objektumot:
+A `response` függvény létrehoz egy [response](/docs/{{version}}/responses) példányt, vagy ha nem kapott értéket, akkor visszaad egy üres response objektumot:
 
     return response('Hello World', 200, $headers);
 
@@ -906,15 +905,15 @@ A `response` function létrehoz egy [response](/docs/{{version}}/responses) pél
 <a name="method-session"></a>
 #### `session()` {#collection-method}
 
-A `session` function lekér egy session értéket:
+A `session` függvény lekér egy értéket a session-ből:
 
     $value = session('key');
 
-Ha paraméterben kulcs/érték pár(oka)t kap, akkor beállítja azt_
+Ha paraméterben kulcs/érték pár(oka)t kap, akkor beállítja azt.
 
     session(['chairs' => 7, 'instruments' => 3]);
 
-Ha nem kap semmilyen értéket, akkor a sessions store objektum adódik át:
+Ha nem kap semmilyen értéket, akkor visszaadja a session store objektumot:
 
     $value = session()->get('key');
 
@@ -923,13 +922,13 @@ Ha nem kap semmilyen értéket, akkor a sessions store objektum adódik át:
 <a name="method-value"></a>
 #### `value()` {#collection-method}
 
-A `value` function visszaadja a kapott closure értékét. A megadott Closure automatikusan lefut a value használata esetén:
+A `value` függvény visszaadja a kapott closure értékét. A megadott Closure automatikusan lefut a value használata esetén:
 
     $value = value(function() { return 'bar'; });
 
 <a name="method-view"></a>
 #### `view()` {#collection-method}
 
-A `view` function visszaad egy [view](/docs/{{version}}/views) példányt:
+A `view` függvény visszaad egy [view](/docs/{{version}}/views) példányt:
 
     return view('auth.login');
